@@ -1,25 +1,32 @@
-import React, { Component } from 'react';
-import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
-import XPage from './pages/XPage';
-import XPageTwo from './pages/XPageTwo'
-import XCollection from './pages/XCollection'
-import XNoMatch from './pages/XNoMatch';
-import { XNav } from './components/XNav';
+import React from "react";
+import { BrowserRouter as Router, Route } from "react-router-dom";
 
-class App extends Component {
-  render() {
-    return <Router forceRefresh={!'pushState' in window.history}>
-      <div>
-        <XNav />
-        <Switch>
-          <Route exact path='/' component={XPage} />
-          <Route exact path='/XPageTwo' component={XPageTwo} />
-          <Route exact path='/XCollection/:id' component={XCollection} />
-          <Route component={XNoMatch} />
-        </Switch>
-      </div>
-    </Router>
-  }
-};
+import routes from "./routes";
 
-export default App;
+import "material-icons/iconfont/material-icons.css";
+import "bootstrap/dist/css/bootstrap.min.css";
+import "./assets/dashboard-style.css";
+import "./assets/custom.css";
+
+export default () => (
+  <Router basename={process.env.REACT_APP_BASENAME || ""}>
+    <div>
+      {routes.map((route, index) => {
+        return (
+          <Route
+            key={index}
+            path={route.path}
+            exact={route.exact}
+            component={props => {
+              return (
+                <route.layout {...props}>
+                  <route.component {...props} />
+                </route.layout>
+              );
+            }}
+          />
+        );
+      })}
+    </div>
+  </Router>
+);
