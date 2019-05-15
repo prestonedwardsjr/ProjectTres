@@ -15,9 +15,25 @@ import {
   FormCheckbox,
   Button
 } from "shards-react";
+import axios from "axios"
 
-const Login = () => (
-  <Container fluid className="main-content-container h-100 px-4">
+class Login extends React.Component {
+  constructor(){
+    super()
+    this.state={email:null,password:null}
+
+    this.handleInput = this.handleInput.bind(this)
+  }
+  handleInput(event){ 
+    event.preventDefault()
+    // console.log(event.target.type)
+    this.setState({[event.target.type]: event.target.value},()=>console.log(this.state))
+    // console.log(this.state)
+    axios.post("/api/auth").then(function(data){console.log(data)})
+  }
+  render(){
+    return ( 
+    <Container fluid className="main-content-container h-100 px-4">
     <Row noGutters className="h-100">
       <Col lg="3" md="5" className="auth-form mx-auto my-auto">
         <Card>
@@ -43,7 +59,8 @@ const Login = () => (
                   id="exampleInputEmail1"
                   placeholder="Enter email"
                   autoComplete="email"
-                />
+                  onChange={this.handleInput}
+                   />
               </FormGroup>
               <FormGroup>
                 <label htmlFor="exampleInputPassword1">Password</label>
@@ -52,6 +69,7 @@ const Login = () => (
                   id="exampleInputPassword1"
                   placeholder="Password"
                   autoComplete="current-password"
+                  onChange={this.handleInput}
                 />
               </FormGroup>
               <FormGroup>
@@ -69,7 +87,7 @@ const Login = () => (
           </CardBody>
 
           {/* Social Icons */}
-          <CardFooter>
+          {/* <CardFooter>
             <ul className="auth-form__social-icons d-table mx-auto">
               <li>
                 <a href="#">
@@ -92,7 +110,7 @@ const Login = () => (
                 </a>
               </li>
             </ul>
-          </CardFooter>
+          </CardFooter> */}
         </Card>
 
         {/* Meta Details */}
@@ -105,6 +123,7 @@ const Login = () => (
       </Col>
     </Row>
   </Container>
-);
+    )}
+};
 
 export default Login;
