@@ -11,6 +11,7 @@ import ServiceRequest from './views/CreateServiceRequest';
 import Register from './views/Register';
 import Login from './views/Login';
 import FileManagerList from './views/FileManagerList';
+import FileManagerCards from "./views/FileManagerCards";
 export default [
   {
     path: "/",
@@ -44,8 +45,13 @@ export default [
     component: Register
   },
   {
-    path: "/fileManagerList",
+    path: "/file-manager-cards",
     layout: DefaultLayout,
-    component: FileManagerList
+    component: FileManagerCards
   },
+  // {
+  //   path: "/fileManagerList",
+  //   layout: DefaultLayout,
+  //   component: FileManagerList
+  // },
 ];
