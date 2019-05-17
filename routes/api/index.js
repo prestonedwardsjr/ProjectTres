@@ -17,7 +17,7 @@ const authRoutes = require("./auth");
 //   router.use("/collectionName", collectionNameRoutes);
 //   // www.url.com/api/collectionName will use routes from collectionNameRoutes
 router.use("/collectionName", collectionNameRoutes);
-router.use("/scrape", scrapeRoutes);
+// router.use("/scrape", scrapeRoutes);
 router.use("/auth",authRoutes);
 
 /***********|

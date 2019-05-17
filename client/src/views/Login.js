@@ -20,16 +20,20 @@ import axios from "axios"
 class Login extends React.Component {
   constructor(){
     super()
-    this.state={email:null,password:null}
+    this.state={email:'',password:''}
 
     this.handleInput = this.handleInput.bind(this)
+    this.handleSubmit = this.handleSubmit.bind(this)
   }
   handleInput(event){ 
     event.preventDefault()
     // console.log(event.target.type)
     this.setState({[event.target.type]: event.target.value},()=>console.log(this.state))
     // console.log(this.state)
-    axios.post("/api/auth").then(function(data){console.log(data)})
+  }
+  handleSubmit(e){
+    e.preventDefault();
+    axios.post("/api/auth/login", {email: this.state.email, password: this.state.password}).then(function(data){console.log(data)})
   }
   render(){
     return ( 
@@ -47,7 +51,7 @@ class Login extends React.Component {
 
             {/* Title */}
             <h5 className="auth-form__title text-center mb-4">
-              Access Your Account
+            <strong>I Need Consent</strong> <br></br>Access Your Account
             </h5>
 
             {/* Form Fields */}
@@ -60,6 +64,7 @@ class Login extends React.Component {
                   placeholder="Enter email"
                   autoComplete="email"
                   onChange={this.handleInput}
+                  value={this.state.email}
                    />
               </FormGroup>
               <FormGroup>
@@ -70,6 +75,7 @@ class Login extends React.Component {
                   placeholder="Password"
                   autoComplete="current-password"
                   onChange={this.handleInput}
+                  value={this.state.password}
                 />
               </FormGroup>
               <FormGroup>
@@ -80,6 +86,7 @@ class Login extends React.Component {
                 theme="accent"
                 className="d-table mx-auto"
                 type="submit"
+                onClick={this.handleSubmit}
               >
                 Access Account
               </Button>

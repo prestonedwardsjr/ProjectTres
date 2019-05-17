@@ -10,12 +10,13 @@ import UserProfileLite from "./views/UserProfileLite";
 import ServiceRequest from './views/CreateServiceRequest';
 import Register from './views/Register';
 import Login from './views/Login';
+import FileManagerList from './views/FileManagerList';
 export default [
   {
     path: "/",
     exact: true,
     layout: DefaultLayout,
-    component: () => <Redirect to="/blog-overview" />
+    component: () => <Redirect to="/login" />
   },
   // {
   //   path: "/blog-overview",
@@ -23,9 +24,9 @@ export default [
   //   component: BlogOverview
   // },
   {
-    path: "/user-profile-lite",
+    path: "/file-manager-list",
     layout: DefaultLayout,
-    component: UserProfileLite
+    component: FileManagerList
   },
   // {
   //   path: "/service-request",
@@ -42,5 +43,9 @@ export default [
     layout: DefaultLayout,
     component: Register
   },
-
+  {
+    path: "/fileManagerList",
+    layout: DefaultLayout,
+    component: FileManagerList
+  },
 ];

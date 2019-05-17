@@ -39,7 +39,7 @@ MainFooter.propTypes = {
 
 MainFooter.defaultProps = {
   contained: false,
-  copyright: "Copyright © 2019 eMerge Americas Hackathon",
+  copyright: "Copyright © 2019 INeedConsent",
   menuItems: [
     {
       title: "Home",
@@ -52,15 +52,15 @@ MainFooter.defaultProps = {
     {
       title: "About",
       to: "#"
-    },
-    {
-      title: "Products",
-      to: "#"
-    },
-    {
-      title: "Blog",
-      to: "#"
     }
+    // {
+    //   title: "Products",
+    //   to: "#"
+    // },
+    // {
+    //   title: "Blog",
+    //   to: "#"
+    // }
   ]
 };
 

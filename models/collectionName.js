@@ -14,12 +14,14 @@ const Schema = mongoose.Schema;
 |* SCHEMA *| 
 |**********/
 // Create Schema for collectionNameSchema
-const collectionNameSchema = new Schema({
-  exField1: { type: String, required: true },
-  exField2: { type: String, required: true },
+const User = new Schema({
+  email: { type: String, required: true },
+  password: { type: String, required: true },
 });
+
+User.statics.findByEmail = (email, cb) => { return this.find({ email }, cb); };
 
 /***********|
 |* EXPORTS *| 
 |***********/
-module.exports = mongoose.model("CollectionName", collectionNameSchema);
+module.exports = mongoose.model("User", User);

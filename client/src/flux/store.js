@@ -9,7 +9,8 @@ let _store = {
   navItems: getSidebarNavItems(),
   origin: {lat: 25.729775, lng: -80.18696899999999},
   destination: { lat: 25.729775, lng: -80.18696899999999},
-  showOriginOnly: false
+  showOriginOnly: false,
+  userId: null
 };
 
 class Store extends EventEmitter {
@@ -21,6 +22,7 @@ class Store extends EventEmitter {
     this.updateOrigin = this.updateOrigin.bind(this);
     this.updateDestination = this.updateDestination.bind(this);
     this.updateOriginOnly = this.updateOriginOnly.bind(this);
+    this.updateUserId = this.updateUserId.bind(this);
 
     Dispatcher.register(this.registerToActions.bind(this));
   }
@@ -38,6 +40,9 @@ class Store extends EventEmitter {
         break;
       case Constants.UPDATE_DESTINATION:
         this.updateDestination(payload);
+        break;
+        case Constants.USERID:
+        this.updateUserId(payload);
         break;
       default:
     }
@@ -61,7 +66,13 @@ class Store extends EventEmitter {
     _store.destination = payload;
     this.emit(Constants.CHANGE);
   }
-
+  updateUserId(payload){
+    _store.userId = payload;
+    this.emit(Constants.USERID)
+  }
+getUserId() {
+  return _store.userId;
+}
   getMenuState() {
     return _store.menuVisible;
   }

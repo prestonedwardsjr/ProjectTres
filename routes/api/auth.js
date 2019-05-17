@@ -1,10 +1,9 @@
 const router = require("express").Router();
 const collectionNameController = require("../../controllers/collectionNameController.js");
 
-router.route("/")  
-  .post((req,res)=>{
-      console.log("hello from the backend")
-      res.send("authorize")
-  }) 
+router.route("/register") 
+  .post(collectionNameController.create) 
 
+  router.route("/login") 
+  .post(collectionNameController.findByEmailPassword) 
 module.exports = router;

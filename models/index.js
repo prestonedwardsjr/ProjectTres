@@ -1,3 +1,3 @@
 module.exports = {
-  CollectionName: require("./collectionName.js")
+  User: require("./collectionName.js")
 };

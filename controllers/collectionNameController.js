@@ -8,23 +8,36 @@ const db = require("../models");
 |***************************/
 const CollectionNameController = {
   findAll: function (req, res) {
-    db.CollectionName
+    db.User
       .find(req.query)
       .then((dbModel) => res.json(dbModel))
       .catch(err => res.status(422).json(err));
   },
   findById: function (req, res) {
-    db.CollectionName
+    db.User
       .findById(req.params.id)
+      .then((dbModel) => res.json(dbModel))
+      .catch(err => res.status(422).json(err));
+  },
+  findByEmail: function (req, res) {
+    db.User
+      .findByEmail(req.body.email)
+      .then((dbModel) => res.json(dbModel))
+      .catch(err => res.status(422).json(err));
+  },
+  findByEmailPassword: function (req, res) {
+    db.User
+      .find({email:req.body.email,password:req.body.password})
       .then((dbModel) => res.json(dbModel))
       .catch(err => res.status(422).json(err));
   },
   create: function (req, res) {
     console.log(JSON.stringify(req.body, null, 2));
-    db.CollectionName
+    db.User
       .create(req.body)
       .then((dbModel) => res.json(dbModel))
-      .catch(err => res.status(422).json(err));
+      .catch(err => { console.log(err) 
+        res.status(422).json(err)});
   },
   update: function (req, res) {
     db.CollectionName

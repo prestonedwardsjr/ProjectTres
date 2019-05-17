@@ -7,19 +7,20 @@ export default function() {
     //   htmlAfter: ""
     // },
     {
+      title: "Register",
+      htmlBefore: '<i class="material-icons">person</i>',
+      to: "/register",
+    },
+    {
       title: "Login",
       htmlBefore: '<i class="material-icons">directions_car</i>',
       to: "/login",
     },
-    // {
-    //   title: "Create Service Request",
-    //   htmlBefore: '<i class="material-icons">directions_car</i>',
-    //   to: "/service-request",
-    // },
     {
-      title: "User Profile",
-      htmlBefore: '<i class="material-icons">person</i>',
-      to: "/user-profile-lite",
+      title: "FileManagerList",
+      htmlBefore: '<i class="material-icons">directions_car</i>',
+      to: "/file-manager-list",
     },
+    
   ];
 }

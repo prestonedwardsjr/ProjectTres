@@ -16,37 +16,8 @@ import {
 } from "shards-react";
 import { Link } from "react-router-dom";
 import axios from "axios"
-import { Dispatcher, Constants } from "../flux";
 
-class Register extends React.Component {
-    constructor(){
-      super()
-      this.state={email:'',password:''}
-  
-      this.handleInput = this.handleInput.bind(this)
-      this.handleSubmit = this.handleSubmit.bind(this)
-    }
-    handleInput(event){ 
-      event.preventDefault()
-      // console.log(event.target.type)
-      this.setState({[event.target.type]: event.target.value},()=>console.log(this.state))
-      // console.log(this.state)
-    }
-    async handleSubmit(e){
-      e.preventDefault();
-      const { data } = await axios.post("/api/auth/register", 
-      {email: this.state.email, password: this.state.password});
-      console.log(data)
-      if (data){
-        console.log(data._id)
-        Dispatcher.dispatch({
-          actionType: Constants.USERID,
-          payload: data._id
-        });
-      }
-    }
-    render() {
-    return(
+const Register = () => (
   <Container fluid className="main-content-container h-100 px-4">
     <Row noGutters className="h-100">
       <Col lg="3" md="5" className="auth-form mx-auto my-auto">
@@ -61,7 +32,7 @@ class Register extends React.Component {
 
             {/* Title */}
             <h5 className="auth-form__title text-center mb-4">
-              <strong>I Need Consent</strong> <br></br>Create New Account
+              Create New Account
             </h5>
 
             {/* Form Fields */}
@@ -73,8 +44,6 @@ class Register extends React.Component {
                   id="exampleInputEmail1"
                   placeholder="Enter email"
                   autoComplete="email"
-                  onChange={this.handleInput}
-                  value={this.state.email}
                 />
               </FormGroup>
               <FormGroup>
@@ -84,8 +53,6 @@ class Register extends React.Component {
                   id="exampleInputPassword1"
                   placeholder="Password"
                   autoComplete="new-password"
-                  onChange={this.handleInput}
-                  value={this.state.password}
                 />
               </FormGroup>
               <FormGroup>
@@ -95,8 +62,6 @@ class Register extends React.Component {
                   id="exampleInputPassword2"
                   placeholder="Repeat Password"
                   autoComplete="new-password"
-                  onChange={this.handleInput}
-                  value={this.state.password}
                 />
               </FormGroup>
               <FormGroup>
@@ -109,7 +74,6 @@ class Register extends React.Component {
                 theme="accent"
                 className="d-table mx-auto"
                 type="submit"
-                onClick={this.handleSubmit}
               >
                 Create Account
               </Button>
@@ -153,6 +117,6 @@ class Register extends React.Component {
       </Col>
     </Row>
   </Container>
-)}
-};
+);
+
 export default Register;
