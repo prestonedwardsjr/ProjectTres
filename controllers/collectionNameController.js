@@ -33,11 +33,18 @@ const CollectionNameController = {
   },
   create: function (req, res) {
     console.log(JSON.stringify(req.body, null, 2));
-    db.User
-      .create(req.body)
-      .then((dbModel) => res.json(dbModel))
-      .catch(err => { console.log(err) 
-        res.status(422).json(err)});
+    db.User.find({ email: req.body.email })
+      .then(dbModel => {
+        if (dbModel.length > 0) {
+          return res.json({ error: 'User Already Exists' })
+        }
+
+        db.User
+          .create(req.body)
+          .then((dbModel) => res.json(dbModel))
+          .catch(err => { console.log(err) 
+            res.status(422).json(err)});
+          })
   },
   update: function (req, res) {
     db.CollectionName

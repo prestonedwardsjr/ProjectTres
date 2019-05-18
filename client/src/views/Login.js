@@ -33,7 +33,15 @@ class Login extends React.Component {
   }
   handleSubmit(e){
     e.preventDefault();
-    axios.post("/api/auth/login", {email: this.state.email, password: this.state.password}).then(function(data){console.log(data)})
+    
+    axios.post("/api/auth/login", {email: this.state.email, password: this.state.password})
+      .then(response => { 
+        console.log(response)
+        if (response.data.length) {
+          this.setState({ userId: response.data[0]._id })
+          this.props.handleUserLogin(response.data[0]._id);
+        }
+      })
   }
   render(){
     return ( 

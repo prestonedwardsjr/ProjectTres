@@ -35,9 +35,17 @@ class SidebarNavItems extends React.Component {
     return (
       <div className="nav-wrapper">
         <Nav className="nav--no-borders flex-column">
-          {items.map((item, idx) => (
-            <SidebarNavItem key={idx} item={item} />
-          ))}
+          {items.map((item, idx) => {
+            if (item.title === 'Files - Cards View') {
+              return (
+                <SidebarNavItem key={idx} item={item} userId={this.props.userId} />
+              )
+            } else {
+              return (
+                <SidebarNavItem key={idx} item={item} />
+              )
+            }
+          })}
         </Nav>
       </div>
     )

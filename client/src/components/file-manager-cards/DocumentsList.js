@@ -77,32 +77,32 @@ ComponentName.defaultProps = {
   documents: [
     {
       id: 1,
-      title: "Lorem Ipsum Document",
+      title: "Parent Consent",
       size: "12kb",
-      image: require("../../images/file-manager/document-preview-1.jpg"),
+      image: require("../../images/file-manager/parentConsent.doc"),
       selected: false
     },
     {
       id: 2,
-      title: "Lorem Ipsum Document",
+      title: "School Consent",
       size: "12kb",
-      image: require("../../images/file-manager/document-preview-1.jpg"),
+      image: require("../../images/file-manager/parentConsent.doc"),
       selected: false
     },
-    {
-      id: 3,
-      title: "Lorem Ipsum Document",
-      size: "12kb",
-      image: require("../../images/file-manager/document-preview-1.jpg"),
-      selected: false
-    },
-    {
-      id: 4,
-      title: "Lorem Ipsum Document",
-      size: "12kb",
-      image: require("../../images/file-manager/document-preview-1.jpg"),
-      selected: false
-    }
+    // {
+    //   id: 3,
+    //   title: "Lorem Ipsum Document",
+    //   size: "12kb",
+    //   image: require("../../images/file-manager/document-preview-1.jpg"),
+    //   selected: false
+    // },
+    // {
+    //   id: 4,
+    //   title: "Lorem Ipsum Document",
+    //   size: "12kb",
+    //   image: require("../../images/file-manager/document-preview-1.jpg"),
+    //   selected: false
+    // }
   ]
 };
 
