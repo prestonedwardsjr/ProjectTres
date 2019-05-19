@@ -36,7 +36,7 @@ const CollectionNameController = {
     db.User.find({ email: req.body.email })
       .then(dbModel => {
         if (dbModel.length > 0) {
-          return res.json({ error: 'User Already Exists' })
+          return res.json({ error: 'That Username Already Exists' })
         }
 
         db.User

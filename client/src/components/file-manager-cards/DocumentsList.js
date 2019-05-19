@@ -1,6 +1,9 @@
 import React from "react";
 import PropTypes from "prop-types";
 import classNames from "classnames";
+import { Document, Page } from 'react-pdf';
+import parentConsent from '../../images/file-manager/parentConsent.pdf'
+
 import { Row, Col, Card, CardBody, CardFooter } from "shards-react";
 
 class ComponentName extends React.Component {
@@ -13,6 +16,24 @@ class ComponentName extends React.Component {
 
     this.handleDocumentClick = this.handleDocumentClick.bind(this);
   }
+
+  // componentDidMount() {
+  //   const fakePDF = atob(
+  //     'JVBERi0xLjcKCjEgMCBvYmogICUgZW50cnkgcG9pbnQKPDwKICAvVHlwZSAvQ2F0YWxvZwog' +
+  //     'IC9QYWdlcyAyIDAgUgo+PgplbmRvYmoKCjIgMCBvYmoKPDwKICAvVHlwZSAvUGFnZXMKICAv' +
+  //     'TWVkaWFCb3ggWyAwIDAgMjAwIDIwMCBdCiAgL0NvdW50IDEKICAvS2lkcyBbIDMgMCBSIF0K' +
+  //     'Pj4KZW5kb2JqCgozIDAgb2JqCjw8CiAgL1R5cGUgL1BhZ2UKICAvUGFyZW50IDIgMCBSCiAg' +
+  //     'L1Jlc291cmNlcyA8PAogICAgL0ZvbnQgPDwKICAgICAgL0YxIDQgMCBSIAogICAgPj4KICA+' +
+  //     'PgogIC9Db250ZW50cyA1IDAgUgo+PgplbmRvYmoKCjQgMCBvYmoKPDwKICAvVHlwZSAvRm9u' +
+  //     'dAogIC9TdWJ0eXBlIC9UeXBlMQogIC9CYXNlRm9udCAvVGltZXMtUm9tYW4KPj4KZW5kb2Jq' +
+  //     'Cgo1IDAgb2JqICAlIHBhZ2UgY29udGVudAo8PAogIC9MZW5ndGggNDQKPj4Kc3RyZWFtCkJU' +
+  //     'CjcwIDUwIFRECi9GMSAxMiBUZgooSGVsbG8sIHdvcmxkISkgVGoKRVQKZW5kc3RyZWFtCmVu' +
+  //     'ZG9iagoKeHJlZgowIDYKMDAwMDAwMDAwMCA2NTUzNSBmIAowMDAwMDAwMDEwIDAwMDAwIG4g' +
+  //     'CjAwMDAwMDAwNzkgMDAwMDAgbiAKMDAwMDAwMDE3MyAwMDAwMCBuIAowMDAwMDAwMzAxIDAw' +
+  //     'MDAwIG4gCjAwMDAwMDAzODAgMDAwMDAgbiAKdHJhaWxlcgo8PAogIC9TaXplIDYKICAvUm9v' +
+  //     'dCAxIDAgUgo+PgpzdGFydHhyZWYKNDkyCiUlRU9G');
+  //   console.log(fakePDF);
+  // }
 
   /**
    * Changes the selected state for a specific document.
@@ -47,6 +68,9 @@ class ComponentName extends React.Component {
               >
                 <CardBody className="file-manager__item-preview px-0 pb-0 pt-4">
                   <img src={file.image} alt={file.title} />
+
+                  <embed src={`${parentConsent}`} width="400px" height="200px" />
+                  
                 </CardBody>
                 <CardFooter className="border-top">
                   <span className="file-manager__item-icon">
@@ -78,17 +102,17 @@ ComponentName.defaultProps = {
     {
       id: 1,
       title: "Parent Consent",
-      size: "12kb",
-      image: require("../../images/file-manager/parentConsent.doc"),
+      size: "32kb",
+      image: require("../../images/file-manager/parentConsent.pdf"),
       selected: false
     },
-    {
-      id: 2,
-      title: "School Consent",
-      size: "12kb",
-      image: require("../../images/file-manager/parentConsent.doc"),
-      selected: false
-    },
+    // {
+    //   id: 2,
+    //   title: "School Consent",
+    //   size: "12kb",
+    //   image: require("../../images/file-manager/parentConsent.doc"),
+    //   selected: false
+    // },
     // {
     //   id: 3,
     //   title: "Lorem Ipsum Document",

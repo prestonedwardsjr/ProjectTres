@@ -40,6 +40,8 @@ class Login extends React.Component {
         if (response.data.length) {
           this.setState({ userId: response.data[0]._id })
           this.props.handleUserLogin(response.data[0]._id);
+          window.location.href="/file-manager-cards"
+
         }
       })
   }
@@ -132,7 +134,7 @@ class Login extends React.Component {
         <div className="auth-form__meta d-flex mt-4">
           <Link to="/forgot-password">Forgot your password?</Link>
           <Link to="/register" className="ml-auto">
-            Create a new account?
+            Don't have an Account?  Create a new account?
           </Link>
         </div>
       </Col>

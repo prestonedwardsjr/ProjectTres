@@ -2,7 +2,7 @@ import React from "react";
 import PropTypes from "prop-types";
 import classNames from "classnames";
 import { Row, Col, Card, CardFooter } from "shards-react";
-
+// import DirectoriesList from 
 class DirectoriesList extends React.Component {
   constructor(props) {
     super(props);
