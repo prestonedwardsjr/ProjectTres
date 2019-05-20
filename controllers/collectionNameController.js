@@ -27,7 +27,7 @@ const CollectionNameController = {
   },
   findByEmailPassword: function (req, res) {
     db.User
-      .find({email:req.body.email,password:req.body.password})
+      .find({ email: req.body.email, password: req.body.password })
       .then((dbModel) => res.json(dbModel))
       .catch(err => res.status(422).json(err));
   },
@@ -42,9 +42,11 @@ const CollectionNameController = {
         db.User
           .create(req.body)
           .then((dbModel) => res.json(dbModel))
-          .catch(err => { console.log(err) 
-            res.status(422).json(err)});
-          })
+          .catch(err => {
+            console.log(err)
+            res.status(422).json(err)
+          });
+      })
   },
   update: function (req, res) {
     db.CollectionName
@@ -58,6 +60,9 @@ const CollectionNameController = {
       .then((dbModel) => dbModel.remove())
       .then((dbModel) => res.json(dbModel))
       .catch(err => res.status(422).json(err));
+  },
+  sendEmail: function (req, res) {
+    console.log(req.body)
   }
 };
 

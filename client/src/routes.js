@@ -12,7 +12,7 @@ import Register from './views/Register';
 import Login from './views/Login';
 // import Send from './views/Send';
 import FileManagerList from './views/FileManagerList';
-import FileManagerCards from "./views/FileManagerCards";
+import FileManagerCards from "./views/FileManagerCards1";
 export default [
   {
     path: "/",
