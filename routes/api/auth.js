@@ -7,6 +7,6 @@ router.route("/register")
   router.route("/login") 
   .post(collectionNameController.findByEmailPassword) 
 
-  router.route("/send") 
-  .post(collectionNameController.create)
+  // router.route("/send") 
+  // .post(collectionNameController.create)
 module.exports = router;

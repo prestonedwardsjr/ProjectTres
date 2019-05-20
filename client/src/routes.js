@@ -10,6 +10,7 @@ import UserProfileLite from "./views/UserProfileLite";
 import ServiceRequest from './views/CreateServiceRequest';
 import Register from './views/Register';
 import Login from './views/Login';
+// import Send from './views/Send';
 import FileManagerList from './views/FileManagerList';
 import FileManagerCards from "./views/FileManagerCards";
 export default [

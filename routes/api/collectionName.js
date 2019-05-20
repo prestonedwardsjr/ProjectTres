@@ -22,6 +22,12 @@ router.route("/:id")
   .put(collectionNameController.update)
   .delete(collectionNameController.remove);
 
+//   // Matches with "/api/collectionName/send" this is defined in "../index.js"
+// router.route("/send")
+// .get(collectionNameController.email)
+// .put(collectionNameController.name)
+// .put(collectionNameController.text.body);
+
 /***********|
 |* EXPORTS *| 
 |***********/
