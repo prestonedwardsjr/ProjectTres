@@ -67,9 +67,9 @@ class ComponentName extends React.Component {
                 onClick={() => this.handleDocumentClick(file)}
               >
                 <CardBody className="file-manager__item-preview px-0 pb-0 pt-4">
-                  <img src={file.image} alt={file.title} />
+                  {/* <img src={file.image} alt={file.title} /> */}
 
-                  <embed src={`${parentConsent}`} width="400px" height="200px" />
+                  <embed src={`${parentConsent}`} width="400px" height="600px" />
                   
                 </CardBody>
                 <CardFooter className="border-top">
@@ -100,11 +100,11 @@ ComponentName.propTypes = {
 ComponentName.defaultProps = {
   documents: [
     {
-      id: 1,
-      title: "Parent Consent",
-      size: "32kb",
-      image: require("../../images/file-manager/parentConsent.pdf"),
-      selected: false
+     id: 1,
+     title: "Parent Consent Email",
+     size: "",
+     image: require("../../images/file-manager/parentConsent.pdf"),
+     selected: false
     },
     // {
     //   id: 2,

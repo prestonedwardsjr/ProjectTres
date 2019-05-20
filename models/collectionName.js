@@ -17,6 +17,7 @@ const Schema = mongoose.Schema;
 const User = new Schema({
   email: { type: String, required: true },
   password: { type: String, required: true },
+ 
 });
 
 User.statics.findByEmail = (email, cb) => { return this.find({ email }, cb); };
